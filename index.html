@@ -7,7 +7,7 @@
 
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="ag-scan-180.png">
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#070b16" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,27 +16,24 @@
     <img class="logo" src="ag-scan-180.png" alt="logo">
     <div class="title">
       <h1>Alto Garda Scan</h1>
-      <p>Foto → auto-crop → PDF</p>
+      <p>Auto-crop → PDF pronto</p>
     </div>
   </header>
 
   <main class="wrap">
     <section class="card">
-      <div class="row">
-        <span class="badge" id="stepBadge">Pagina 1 di 4</span>
-        <button class="btn ghost" id="resetBtn" type="button">Reset</button>
-      </div>
-
-      <div class="row gap top-controls">
-        <label class="field">
-          <span>N° pagine</span>
-          <input id="pagesInput" type="number" min="1" max="20" value="4" inputmode="numeric" />
-        </label>
+      <div class="status-row">
+        <div class="status">
+          <div class="statusTitle" id="stepTitle">Pagina 1</div>
+          <div class="statusSub" id="stepSub">di 4</div>
+        </div>
 
         <label class="toggle">
           <input id="autocropToggle" type="checkbox" checked />
-          <span>Auto-crop & correzione</span>
+          <span>Auto-crop</span>
         </label>
+
+        <button class="btn danger" id="resetBtn" type="button">Reset</button>
       </div>
 
       <div class="camera">
@@ -44,27 +41,34 @@
         <canvas id="canvas" class="hidden"></canvas>
       </div>
 
-      <div class="row gap">
-        <button class="btn" id="snapBtn" type="button">Scatta</button>
-        <button class="btn ghost" id="switchBtn" type="button">Cambia camera</button>
-      </div>
-
-      <div class="divider"></div>
-
-      <div id="thumbs" class="thumbs"></div>
-
-      <div class="row gap">
-        <button class="btn primary" id="pdfBtn" type="button" disabled>Genera PDF</button>
-        <a class="btn ghost" id="downloadLink" download hidden>Scarica PDF</a>
-      </div>
+      <div class="thumbs" id="thumbs"></div>
 
       <div class="hint" id="hint"></div>
-
-      <!-- Fallback input (camera nativa) -->
-      <input id="fileFallback" class="hidden" type="file" accept="image/*" capture="environment" />
-      <button class="btn ghost hidden" id="fallbackBtn" type="button">Apri fotocamera (fallback)</button>
     </section>
   </main>
+
+  <!-- Bottom controls (sticky) -->
+  <nav class="bottomBar">
+    <div class="pagePicker">
+      <button class="chip" id="minusBtn" type="button" aria-label="Meno pagine">−</button>
+      <div class="pageCount">
+        <div class="pageCountNum" id="pagesNum">4</div>
+        <div class="pageCountLbl">pagine</div>
+      </div>
+      <button class="chip" id="plusBtn" type="button" aria-label="Più pagine">+</button>
+    </div>
+
+    <div class="actions">
+      <button class="btn big" id="snapBtn" type="button">Scatta</button>
+      <button class="btn big ghost" id="switchBtn" type="button">Camera</button>
+      <button class="btn big primary" id="pdfBtn" type="button" disabled>PDF</button>
+      <a class="btn big ghost" id="downloadLink" download hidden>Scarica</a>
+    </div>
+  </nav>
+
+  <!-- Fallback input (camera nativa) -->
+  <input id="fileFallback" class="hidden" type="file" accept="image/*" capture="environment" />
+  <button class="btn ghost fallback hidden" id="fallbackBtn" type="button">Apri fotocamera (fallback)</button>
 
   <!-- PDF -->
   <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
