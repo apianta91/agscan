@@ -1,0 +1,59 @@
+:root{
+  --bg:#0b1220; --card:#111a2e; --txt:#e8eefc; --mut:#9fb0d0;
+  --btn:#24345f; --btn2:#1a2747; --pri:#2d6bff;
+  --r:16px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt)}
+.topbar{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.logo{width:44px;height:44px;border-radius:12px}
+.title h1{font-size:18px;margin:0}
+.title p{margin:2px 0 0;color:var(--mut);font-size:13px}
+.wrap{padding:0 16px 24px;max-width:720px;margin:0 auto}
+.card{background:var(--card);border-radius:var(--r);padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.row{display:flex;align-items:center;justify-content:space-between}
+.row.gap{gap:10px;justify-content:flex-start;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--mut)}
+.btn{border:0;border-radius:14px;padding:12px 14px;background:var(--btn);color:var(--txt);font-weight:600}
+.btn:disabled{opacity:.5}
+.btn.ghost{background:var(--btn2);color:var(--mut)}
+.btn.primary{background:var(--pri)}
+.divider{height:1px;background:rgba(255,255,255,.08);margin:12px 0}
+.camera{border-radius:18px;overflow:hidden;background:#000;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center}
+video{width:100%;height:100%;object-fit:cover}
+.hidden{display:none!important}
+
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media (min-width:540px){
+  .thumbs{grid-template-columns:repeat(6,1fr)}
+}
+.thumb{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:3/4}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb button{position:absolute;top:6px;right:6px;border:0;border-radius:10px;padding:6px 8px;background:rgba(0,0,0,.55);color:#fff}
+
+.hint{margin-top:10px;color:var(--mut);font-size:13px;line-height:1.35}
+
+.top-controls{margin-top:10px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field span{font-size:12px;color:var(--mut)}
+.field input{
+  width:110px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  color:var(--txt);
+  font-weight:700;
+}
+
+.toggle{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  color:var(--mut);
+  font-size:13px;
+  user-select:none;
+}
+.toggle input{transform:scale(1.2)}
